@@ -4,16 +4,17 @@ import pandas as pd
 import pickle
 
 # load the model from disk
-loaded_model=pickle.load(open('../Linear Regression_Ridge_Lasso/linear_regression.pickle', 'rb'))
+loaded_model=pickle.load(open('inear_regression.pickle', 'rb'))
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-	return render_template('home.html')
+
+    return render_template('home.html')
 
 @app.route('/predict',methods=['POST'])
 def predict():
-    df=pd.read_csv('../Data/Real-Data/real_2018.csv')
+    df=pd.read_csv('real_2018.csv')
     my_prediction=loaded_model.predict(df.iloc[:,:-1].values)
     my_prediction=my_prediction.tolist()
     return render_template('result.html',prediction = my_prediction)
