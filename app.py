@@ -4,7 +4,7 @@ import pandas as pd
 import pickle
 
 # load the model from disk
-loaded_model=pickle.load(open('inear_regression.pickle', 'rb'))
+loaded_model=pickle.load(open('linear_regression.pickle', 'rb'))
 app = Flask(__name__)
 
 @app.route('/')
